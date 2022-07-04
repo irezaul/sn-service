@@ -1,7 +1,13 @@
 package handlers
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
 
-func FontendService(c *gin.Context) {
+	"github.com/gin-gonic/gin"
+)
 
+func FrontendService(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"ping": "pong",
+	})
 }

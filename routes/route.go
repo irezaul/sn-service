@@ -10,7 +10,7 @@ import (
 func Route() {
 	r := gin.Default()
 	database.Connection()
-	r.GET("/", handlers.Home)
+	r.GET("/api", handlers.Home)
 
 	user := r.Group("/user")
 	{
@@ -35,13 +35,13 @@ func Route() {
 
 	}
 
-	fontend := r.Group("/")
+	frontend := r.Group("/")
 	{
-		fontend.GET("/", handlers.FontendService)
-		// fontend.GET("/login", handlers.FontendLogin)
-		// fontend.GET("/logout", handlers.FontendLogout)
-		// fontend.GET("/add", handlers.FontendAddService)
-		// fontend.GET("/update", handlers.FontendUpdateService)
+		frontend.GET("/", handlers.FrontendService)
+		// frontend.GET("/login", handlers.FrontendLogin)
+		// frontend.GET("/logout", handlers.FrontendLogout)
+		// frontend.GET("/add", handlers.FrontendAddService)
+		// frontend.GET("/update", handlers.FrontendUpdateService)
 	}
 
 	r.Run(":8080")
