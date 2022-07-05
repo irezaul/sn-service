@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	routes.Route()
-
+	routes.App()
 }

@@ -4,15 +4,20 @@ import (
 	"ginorm/database"
 	"ginorm/handlers"
 
+	// "github.com/gin-gonic/contrib/static"
+
 	"github.com/gin-gonic/gin"
 )
 
-func Route() {
+func App() {
 	r := gin.Default()
 	database.Connection()
 	r.GET("/api", handlers.Home)
 
-	user := r.Group("/user")
+	// r.Use(static.Serve("/asset", static.LocalFile("views/frontend/assets", true)))
+	r.LoadHTMLGlob("templates/*.gohtml")
+
+	user := r.Group("/api/user")
 	{
 
 		user.POST("/", handlers.AddUser)
@@ -21,12 +26,12 @@ func Route() {
 		user.PUT("/:id", handlers.UpdateUser)
 
 	}
-	auth := r.Group("/auth/login")
+	auth := r.Group("/api/auth/login")
 	{
 		auth.POST("/", handlers.LoginAuth)
 	}
 
-	service := r.Group("/auth/service")
+	service := r.Group("/api/service")
 	{
 		service.POST("/", handlers.AddService)
 		service.GET("/", handlers.GetService)

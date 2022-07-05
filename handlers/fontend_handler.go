@@ -7,7 +7,5 @@ import (
 )
 
 func FrontendService(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"ping": "pong",
-	})
+	c.HTML(http.StatusOK, "index.gohtml", nil)
 }
