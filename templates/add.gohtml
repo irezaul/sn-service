@@ -12,41 +12,45 @@
 <body>
   <div class="container">
     <h2 class="text-center">Add Services</h2>
-    <form action="" method="post">
+    <form action="/add" method="post">
       <div class="row">
         <div class="col-md-6">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Brand</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input name="brand" required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Services</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" />
+            <input required name="services" type="text" class="form-control" id="exampleInputPassword1" />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Source</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" />
+            <input required type="text" class="form-control" name="source" id="exampleInputPassword1" />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Date</label>
-            <input type="date" class="form-control" id="exampleInputPassword1" />
+            <input required name="date" type="date" class="form-control" id="exampleInputPassword1" />
           </div>
         </div>
         <div class="col-md-6">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Model</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input required name="model" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Serial</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" />
+            <input required type="text" name="serial" class="form-control" id="exampleInputPassword1" />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Price</label>
-            <input type="number" class="form-control" id="exampleInputPassword1" />
+            <input required type="number" name="price" class="form-control" id="exampleInputPassword1" />
           </div>
         </div>
-        <button type="submit" class="btn btn-outline-primary">Submit</button>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" class="btn btn-outline-primary">
+            Submit
+          </button>
+        </div>
       </div>
     </form>
   </div>

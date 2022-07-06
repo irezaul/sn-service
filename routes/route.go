@@ -45,7 +45,8 @@ func App() {
 		frontend.GET("/", handlers.FrontendService)
 		// frontend.GET("/login", handlers.FrontendLogin)
 		// frontend.GET("/logout", handlers.FrontendLogout)
-		// frontend.GET("/add", handlers.FrontendAddService)
+		frontend.GET("/add", handlers.FrontendAddService)
+		frontend.POST("/add", handlers.FrontendAddProcess)
 		// frontend.GET("/update", handlers.FrontendUpdateService)
 	}
 
