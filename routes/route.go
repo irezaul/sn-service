@@ -49,6 +49,7 @@ func App() {
 		frontend.GET("/add", handlers.FrontendAddService)
 		frontend.POST("/add", handlers.FrontendAddProcess)
 		frontend.GET("/edit/:id", handlers.FrontendEditService)
+		frontend.POST("/edit/:id", handlers.FrontendEditProcess)
 		// frontend.GET("/update", handlers.FrontendUpdateService)
 	}
 

@@ -3,6 +3,7 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"ginorm/model"
 	"io/ioutil"
 	"log"
@@ -71,4 +72,38 @@ func FrontendEditService(c *gin.Context) {
 	json.Unmarshal(body, &service)
 
 	c.HTML(http.StatusOK, "edit.gohtml", service)
+}
+
+func FrontendEditProcess(c *gin.Context) {
+	id := c.Param("id")
+	model := model.ServiceProcess{
+		Brand:   c.PostForm("brand"),
+		Service: c.PostForm("services"),
+		Source:  c.PostForm("source"),
+		Date:    c.PostForm("date"),
+		Model:   c.PostForm("model"),
+		Serial:  c.PostForm("serial"),
+		Price:   c.PostForm("price"),
+	}
+	fmt.Println("sdlfjsldfjsldfj", id)
+	data, err := json.MarshalIndent(model, "", " ")
+	if err != nil {
+		log.Println(err)
+	}
+
+	client := &http.Client{}
+
+	req, err := http.NewRequest(http.MethodPut, "http://localhost:8080/api/service/"+id, bytes.NewBuffer(data))
+	req.Header.Set("Content-Type", "application/json")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer resp.Body.Close()
+	c.Redirect(http.StatusMovedPermanently, "/")
 }
