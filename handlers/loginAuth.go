@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"ginorm/database"
-	"ginorm/model"
+	"sn-service/database"
 	"net/http"
+	"sn-service/model"
 
 	"github.com/gin-gonic/gin"
 )

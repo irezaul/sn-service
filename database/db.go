@@ -1,7 +1,7 @@
 package database
 
 import (
-	"ginorm/model"
+	"sn-service/model"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

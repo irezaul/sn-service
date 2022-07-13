@@ -1,10 +1,11 @@
 package routes
 
 import (
-	"ginorm/database"
-	"ginorm/handlers"
 
 	// "github.com/gin-gonic/contrib/static"
+
+	"sn-service/database"
+	"sn-service/handlers"
 
 	"github.com/gin-gonic/gin"
 )

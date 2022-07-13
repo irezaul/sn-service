@@ -1,8 +1,6 @@
 package main
 
-import (
-	"ginorm/routes"
-)
+import "sn-service/routes"
 
 func main() {
 	routes.App()

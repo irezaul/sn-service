@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"ginorm/model"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"sn-service/model"
 
 	"github.com/gin-gonic/gin"
 )
