@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Services</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="text-center">Add Services</h2>
+    <form action="/edit" method="post">
+    
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Brand</label>
+            <input name="brand" required type="text" value="{{.Brand}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Services</label>
+            <input required name="services" value="{{.Model}}" type="text" class="form-control" id="exampleInputPassword1" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Source</label>
+            <input required type="text" value="{{.Source}}" class="form-control" name="source" id="exampleInputPassword1" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Date</label>
+            <input required name="date" value="{{.Date}}" type="date" class="form-control" id="exampleInputPassword1" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Model</label>
+            <input required name="model" value="{{.Model}}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Serial</label>
+            <input required type="text" value="{{.Serial}}" name="serial" class="form-control" id="exampleInputPassword1" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Price</label>
+            <input required type="number" value="{{.Price}}" name="price" class="form-control" id="exampleInputPassword1" />
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" class="btn btn-outline-primary">
+            Update
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

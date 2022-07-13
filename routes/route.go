@@ -35,6 +35,7 @@ func App() {
 	{
 		service.POST("/", handlers.AddService)
 		service.GET("/", handlers.GetService)
+		service.GET("/:id", handlers.GetServiceById)
 		service.DELETE("/:id", handlers.DeleteService)
 		service.PUT("/:id", handlers.UpdateService)
 
@@ -47,6 +48,7 @@ func App() {
 		// frontend.GET("/logout", handlers.FrontendLogout)
 		frontend.GET("/add", handlers.FrontendAddService)
 		frontend.POST("/add", handlers.FrontendAddProcess)
+		frontend.GET("/edit/:id", handlers.FrontendEditService)
 		// frontend.GET("/update", handlers.FrontendUpdateService)
 	}
 

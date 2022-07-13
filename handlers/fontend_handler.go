@@ -34,14 +34,6 @@ func FrontendAddService(c *gin.Context) {
 }
 
 func FrontendAddProcess(c *gin.Context) {
-	// brand:= c.PostForm("brand")
-	// services:= c.PostForm("services")
-	// source:= c.PostForm("source")
-	// date:= c.PostForm("date")
-	// model:= c.PostForm("model")
-	// serial:= c.PostForm("serial")
-	// price:= c.PostForm("price")
-
 	model := model.ServiceProcess{
 		Brand:   c.PostForm("brand"),
 		Service: c.PostForm("services"),
@@ -56,10 +48,27 @@ func FrontendAddProcess(c *gin.Context) {
 	if err != nil {
 		log.Println(err)
 	}
-	// fmt.Println(string(data))
 
 	http.Post("http://localhost:8080/api/service", "application/json", bytes.NewBuffer(data))
-	// fmt.Println(resp)
 	c.Redirect(http.StatusMovedPermanently, "/")
 
+}
+
+func FrontendEditService(c *gin.Context) {
+	id := c.Param("id")
+	req, err := http.Get("http://localhost:8080/api/service/" + id)
+	if err != nil {
+		log.Println(err)
+	}
+
+	defer req.Body.Close()
+	body, err := ioutil.ReadAll(req.Body)
+	if err != nil {
+		log.Println(err)
+	}
+
+	var service model.Service
+	json.Unmarshal(body, &service)
+
+	c.HTML(http.StatusOK, "edit.gohtml", service)
 }
